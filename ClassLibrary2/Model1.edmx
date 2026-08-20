@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JZZSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GZID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RFIDID" Type="int" />
+          <Property Name="MateCode" Type="varchar" MaxLength="255" />
+          <Property Name="DateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MaterialLoss">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RFIDID" Type="int" />
+          <Property Name="Line" Type="varchar" MaxLength="255" />
+          <Property Name="Status" Type="varchar" MaxLength="255" />
+          <Property Name="GFweight" Type="float" />
+          <Property Name="Resinweight" Type="float" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="1" />
+          <Property Name="Reserver1" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver2" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver3" Type="varchar" MaxLength="255" />
+          <Property Name="CS" Type="int" />
+        </EntityType>
+        <EntityType Name="ProWeigth">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RFIDID" Type="int" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="255" />
+          <Property Name="OrderNum" Type="int" />
+          <Property Name="FinishNum" Type="int" />
+          <Property Name="OrderProNo" Type="int" />
+          <Property Name="ProNo" Type="int" />
+          <Property Name="ProName" Type="varchar" MaxLength="255" />
+          <Property Name="spec" Type="varchar" MaxLength="255" />
+          <Property Name="Custoner" Type="varchar" MaxLength="255" />
+          <Property Name="MPWeigth" Type="varchar" MaxLength="255" />
+          <Property Name="PGWeigth" Type="varchar" MaxLength="255" />
+          <Property Name="MGWeigth" Type="varchar" MaxLength="255" />
+          <Property Name="JGWeigth" Type="varchar" MaxLength="255" />
+          <Property Name="DateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RERFID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RFIDID" Type="int" />
+          <Property Name="RFIDName" Type="varchar" MaxLength="255" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Reserver1" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver2" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver3" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityContainer Name="JZZSModelStoreContainer">
+          <EntitySet Name="GZID" EntityType="Self.GZID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialLoss" EntityType="Self.MaterialLoss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProWeigth" EntityType="Self.ProWeigth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RERFID" EntityType="Self.RERFID" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JZZSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GZID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RFIDID" Type="Int32" />
+          <Property Name="MateCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MaterialLoss">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RFIDID" Type="Int32" />
+          <Property Name="Line" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GFweight" Type="Double" />
+          <Property Name="Resinweight" Type="Double" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderNo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Reserver1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProWeigth">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RFIDID" Type="Int32" />
+          <Property Name="OrderNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Int32" />
+          <Property Name="FinishNum" Type="Int32" />
+          <Property Name="OrderProNo" Type="Int32" />
+          <Property Name="ProNo" Type="Int32" />
+          <Property Name="ProName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="spec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Custoner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MPWeigth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PGWeigth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MGWeigth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="JGWeigth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RERFID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RFIDID" Type="Int32" />
+          <Property Name="RFIDName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Reserver1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="JZZSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GZID" EntityType="Self.GZID" />
+          <EntitySet Name="MaterialLoss" EntityType="Self.MaterialLoss" />
+          <EntitySet Name="ProWeigth" EntityType="Self.ProWeigth" />
+          <EntitySet Name="RERFID" EntityType="Self.RERFID" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JZZSModelStoreContainer" CdmEntityContainer="JZZSEntities">
+          <EntitySetMapping Name="GZID">
+            <EntityTypeMapping TypeName="JZZSModel.GZID">
+              <MappingFragment StoreEntitySet="GZID">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+                <ScalarProperty Name="MateCode" ColumnName="MateCode" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialLoss">
+            <EntityTypeMapping TypeName="JZZSModel.MaterialLoss">
+              <MappingFragment StoreEntitySet="MaterialLoss">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="GFweight" ColumnName="GFweight" />
+                <ScalarProperty Name="Resinweight" ColumnName="Resinweight" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="Reserver1" ColumnName="Reserver1" />
+                <ScalarProperty Name="Reserver2" ColumnName="Reserver2" />
+                <ScalarProperty Name="Reserver3" ColumnName="Reserver3" />
+                <ScalarProperty Name="CS" ColumnName="CS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProWeigth">
+            <EntityTypeMapping TypeName="JZZSModel.ProWeigth">
+              <MappingFragment StoreEntitySet="ProWeigth">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+                <ScalarProperty Name="FinishNum" ColumnName="FinishNum" />
+                <ScalarProperty Name="OrderProNo" ColumnName="OrderProNo" />
+                <ScalarProperty Name="ProNo" ColumnName="ProNo" />
+                <ScalarProperty Name="ProName" ColumnName="ProName" />
+                <ScalarProperty Name="spec" ColumnName="spec" />
+                <ScalarProperty Name="Custoner" ColumnName="Custoner" />
+                <ScalarProperty Name="MPWeigth" ColumnName="MPWeigth" />
+                <ScalarProperty Name="PGWeigth" ColumnName="PGWeigth" />
+                <ScalarProperty Name="MGWeigth" ColumnName="MGWeigth" />
+                <ScalarProperty Name="JGWeigth" ColumnName="JGWeigth" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RERFID">
+            <EntityTypeMapping TypeName="JZZSModel.RERFID">
+              <MappingFragment StoreEntitySet="RERFID">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+                <ScalarProperty Name="RFIDName" ColumnName="RFIDName" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="Reserver1" ColumnName="Reserver1" />
+                <ScalarProperty Name="Reserver2" ColumnName="Reserver2" />
+                <ScalarProperty Name="Reserver3" ColumnName="Reserver3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

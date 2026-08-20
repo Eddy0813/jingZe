@@ -1,0 +1,209 @@
+{
+    "tableData": [
+        {
+            "batchNumber": "1",
+            "materialId": "005-1",
+            "orderId": "A2407001",
+            "fiberWeight": 10.3,
+            "resinWeight": 20.1,
+            "finishedWeight": 58.3,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "无"
+        },
+        {
+            "batchNumber": "2",
+            "materialId": "005-1",
+            "orderId": "A2407001",
+            "fiberWeight": 10.4,
+            "resinWeight": 20.3,
+            "finishedWeight": 65.5,
+            "alarmFiber": "有",
+            "alarmResin": "无",
+            "alarmFinished": "无"
+        },
+        {
+            "batchNumber": "3",
+            "materialId": "005-1",
+            "orderId": "A2407001",
+            "fiberWeight": 13.4,
+            "resinWeight": 20.2,
+            "finishedWeight": 58,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "4",
+            "materialId": "005-2",
+            "orderId": "A241108",
+            "fiberWeight": 11.1,
+            "resinWeight": 20.2,
+            "finishedWeight": 55,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "无"
+        },
+        {
+            "batchNumber": "5",
+            "materialId": "005-2",
+            "orderId": "A241108",
+            "fiberWeight": 12.2,
+            "resinWeight": 20.3,
+            "finishedWeight": 58.5,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "6",
+            "materialId": "006-1",
+            "orderId": "A2407012",
+            "fiberWeight": 15.0,
+            "resinWeight": 25.0,
+            "finishedWeight": 70.0,
+            "alarmFiber": "无",
+            "alarmResin": "有",
+            "alarmFinished": "无"
+        },
+        {
+            "batchNumber": "7",
+            "materialId": "006-2",
+            "orderId": "A2407023",
+            "fiberWeight": 14.5,
+            "resinWeight": 24.0,
+            "finishedWeight": 68.5,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "无"
+        },
+        {
+            "batchNumber": "8",
+            "materialId": "007-1",
+            "orderId": "A2407034",
+            "fiberWeight": 13.2,
+            "resinWeight": 22.1,
+            "finishedWeight": 60.0,
+            "alarmFiber": "有",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "9",
+            "materialId": "008-1",
+            "orderId": "A2407045",
+            "fiberWeight": 16.0,
+            "resinWeight": 26.0,
+            "finishedWeight": 75.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "无"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        },
+        {
+            "batchNumber": "10",
+            "materialId": "009-1",
+            "orderId": "A2407056",
+            "fiberWeight": 11.0,
+            "resinWeight": 21.0,
+            "finishedWeight": 55.0,
+            "alarmFiber": "无",
+            "alarmResin": "无",
+            "alarmFinished": "有"
+        }
+    ],
+    "barData": [
+        30,
+        500,
+        300,
+        200,
+        100,
+        300
+    ],
+    "pieData": [
+        {
+            "value": 30,
+            "name": "已完成"
+        },
+        {
+            "value": 80,
+            "name": "未完成"
+        }
+    ]
+}

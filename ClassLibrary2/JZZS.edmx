@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JZZSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GZID">
+          <Key>
+            <PropertyRef Name="RFIDID" />
+          </Key>
+          <Property Name="RFIDID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="MateCode" Type="varchar" MaxLength="255" />
+          <Property Name="DateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" MaxLength="255" />
+          <Property Name="specification" Type="varchar" MaxLength="255" />
+          <Property Name="resinWeight" Type="float" />
+          <Property Name="fgWeight" Type="float" />
+          <Property Name="qbq" Type="float" />
+          <Property Name="qbh" Type="float" />
+          <Property Name="gcRange" Type="float" />
+          <Property Name="gfWeight" Type="float" />
+        </EntityType>
+        <EntityType Name="MaterialLoss">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RFIDID" Type="varchar" MaxLength="255" />
+          <Property Name="Line" Type="varchar" MaxLength="255" />
+          <Property Name="Status" Type="varchar" MaxLength="255" />
+          <Property Name="GFweight" Type="float" />
+          <Property Name="Resinweight" Type="float" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Reserver1" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver2" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver3" Type="varchar" MaxLength="255" />
+          <Property Name="CS" Type="int" />
+        </EntityType>
+        <EntityType Name="ProWeigth">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RFIDID" Type="varchar" MaxLength="255" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="255" />
+          <Property Name="OrderNum" Type="int" />
+          <Property Name="FinishNum" Type="int" />
+          <Property Name="OrderProNo" Type="varchar" MaxLength="255" />
+          <Property Name="ProNo" Type="varchar" MaxLength="255" />
+          <Property Name="ProName" Type="varchar" MaxLength="255" />
+          <Property Name="spec" Type="varchar" MaxLength="255" />
+          <Property Name="Custoner" Type="varchar" MaxLength="255" />
+          <Property Name="MPWeigth" Type="float" />
+          <Property Name="PGWeigth" Type="float" />
+          <Property Name="MGWeigth" Type="float" />
+          <Property Name="JGWeigth" Type="float" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="ProID" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver1" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver2" Type="varchar" MaxLength="255" />
+          <Property Name="Reserver3" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="RERFID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RFIDID" Type="varchar" MaxLength="255" />
+          <Property Name="RFIDName" Type="varchar" MaxLength="255" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Reserver1" Type="nchar" MaxLength="10" />
+          <Property Name="Reserver2" Type="nchar" MaxLength="10" />
+          <Property Name="Reserver3" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="JZZSModelStoreContainer">
+          <EntitySet Name="GZID" EntityType="Self.GZID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="material" EntityType="Self.material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialLoss" EntityType="Self.MaterialLoss" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProWeigth" EntityType="Self.ProWeigth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RERFID" EntityType="Self.RERFID" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JZZSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JZZSEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RERFID" EntityType="JZZSModel.RERFID" />
+          <EntitySet Name="MaterialLoss" EntityType="JZZSModel.MaterialLoss" />
+          <EntitySet Name="ProWeigth" EntityType="JZZSModel.ProWeigth" />
+          <EntitySet Name="GZID" EntityType="JZZSModel.GZID" />
+          <EntitySet Name="material" EntityType="JZZSModel.material" />
+        </EntityContainer>
+        <EntityType Name="RERFID">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RFIDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RFIDName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Reserver1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Reserver2" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Reserver3" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MaterialLoss">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RFIDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Line" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GFweight" Type="Double" />
+          <Property Name="Resinweight" Type="Double" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="OrderNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Reserver1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CS" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProWeigth">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RFIDID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OrderNum" Type="Int32" />
+          <Property Name="FinishNum" Type="Int32" />
+          <Property Name="OrderProNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ProNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ProName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="spec" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Custoner" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MPWeigth" Type="Double" />
+          <Property Name="PGWeigth" Type="Double" />
+          <Property Name="MGWeigth" Type="Double" />
+          <Property Name="JGWeigth" Type="Double" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="ProID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reserver3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GZID">
+          <Key>
+            <PropertyRef Name="RFIDID" />
+          </Key>
+          <Property Name="RFIDID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MateCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="specification" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="resinWeight" Type="Double" />
+          <Property Name="fgWeight" Type="Double" />
+          <Property Name="qbq" Type="Double" />
+          <Property Name="qbh" Type="Double" />
+          <Property Name="gcRange" Type="Double" />
+          <Property Name="gfWeight" Type="Double" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JZZSModelStoreContainer" CdmEntityContainer="JZZSEntities1">
+    <EntitySetMapping Name="RERFID">
+      <EntityTypeMapping TypeName="IsTypeOf(JZZSModel.RERFID)">
+        <MappingFragment StoreEntitySet="RERFID">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+          <ScalarProperty Name="RFIDName" ColumnName="RFIDName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Reserver1" ColumnName="Reserver1" />
+          <ScalarProperty Name="Reserver2" ColumnName="Reserver2" />
+          <ScalarProperty Name="Reserver3" ColumnName="Reserver3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaterialLoss">
+      <EntityTypeMapping TypeName="IsTypeOf(JZZSModel.MaterialLoss)">
+        <MappingFragment StoreEntitySet="MaterialLoss">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="GFweight" ColumnName="GFweight" />
+          <ScalarProperty Name="Resinweight" ColumnName="Resinweight" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="Reserver1" ColumnName="Reserver1" />
+          <ScalarProperty Name="Reserver2" ColumnName="Reserver2" />
+          <ScalarProperty Name="Reserver3" ColumnName="Reserver3" />
+          <ScalarProperty Name="CS" ColumnName="CS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProWeigth">
+      <EntityTypeMapping TypeName="IsTypeOf(JZZSModel.ProWeigth)">
+        <MappingFragment StoreEntitySet="ProWeigth">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderNum" ColumnName="OrderNum" />
+          <ScalarProperty Name="FinishNum" ColumnName="FinishNum" />
+          <ScalarProperty Name="OrderProNo" ColumnName="OrderProNo" />
+          <ScalarProperty Name="ProNo" ColumnName="ProNo" />
+          <ScalarProperty Name="ProName" ColumnName="ProName" />
+          <ScalarProperty Name="spec" ColumnName="spec" />
+          <ScalarProperty Name="Custoner" ColumnName="Custoner" />
+          <ScalarProperty Name="MPWeigth" ColumnName="MPWeigth" />
+          <ScalarProperty Name="PGWeigth" ColumnName="PGWeigth" />
+          <ScalarProperty Name="MGWeigth" ColumnName="MGWeigth" />
+          <ScalarProperty Name="JGWeigth" ColumnName="JGWeigth" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="ProID" ColumnName="ProID" />
+          <ScalarProperty Name="Reserver1" ColumnName="Reserver1" />
+          <ScalarProperty Name="Reserver2" ColumnName="Reserver2" />
+          <ScalarProperty Name="Reserver3" ColumnName="Reserver3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="GZID">
+            <EntityTypeMapping TypeName="JZZSModel.GZID">
+              <MappingFragment StoreEntitySet="GZID">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="MateCode" ColumnName="MateCode" />
+                <ScalarProperty Name="RFIDID" ColumnName="RFIDID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="material">
+            <EntityTypeMapping TypeName="JZZSModel.material">
+              <MappingFragment StoreEntitySet="material">
+                <ScalarProperty Name="gfWeight" ColumnName="gfWeight" />
+                <ScalarProperty Name="gcRange" ColumnName="gcRange" />
+                <ScalarProperty Name="qbh" ColumnName="qbh" />
+                <ScalarProperty Name="qbq" ColumnName="qbq" />
+                <ScalarProperty Name="fgWeight" ColumnName="fgWeight" />
+                <ScalarProperty Name="resinWeight" ColumnName="resinWeight" />
+                <ScalarProperty Name="specification" ColumnName="specification" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

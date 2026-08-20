@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记录滚动表格</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .table-container {
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        thead th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        tbody td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .scrollable tbody {
+            display: block;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scrollable tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .scrollable tbody {
+            animation: scroll 10s linear infinite;
+        }
+
+        .scrollable tbody:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>条码</th>
+                    <th>操作人</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody class="scrollable">
+                <!-- 数据记录 -->
+                <tr>
+                    <td>1</td>
+                    <td>123456789</td>
+                    <td>张三</td>
+                    <td>2024-12-13 10:00</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>987654321</td>
+                    <td>李四</td>
+                    <td>2024-12-13 10:01</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>456789123</td>
+                    <td>王五</td>
+                    <td>2024-12-13 10:02</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>789123456</td>
+                    <td>赵六</td>
+                    <td>2024-12-13 10:03</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>321456789</td>
+                    <td>周七</td>
+                    <td>2024-12-13 10:04</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>654789123</td>
+                    <td>郑八</td>
+                    <td>2024-12-13 10:05</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>789321654</td>
+                    <td>刘九</td>
+                    <td>2024-12-13 10:06</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>123654789</td>
+                    <td>韩十</td>
+                    <td>2024-12-13 10:07</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>987123456</td>
+                    <td>许十一</td>
+                    <td>2024-12-13 10:08</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>654321987</td>
+                    <td>田十二</td>
+                    <td>2024-12-13 10:09</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>987456123</td>
+                    <td>赵十三</td>
+                    <td>2024-12-13 10:10</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>321789456</td>
+                    <td>吴十四</td>
+                    <td>2024-12-13 10:11</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>654987321</td>
+                    <td>程十五</td>
+                    <td>2024-12-13 10:12</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>789654123</td>
+                    <td>李十六</td>
+                    <td>2024-12-13 10:13</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>321123654</td>
+                    <td>白十七</td>
+                    <td>2024-12-13 10:14</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>654321123</td>
+                    <td>刘十八</td>
+                    <td>2024-12-13 10:15</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>987987654</td>
+                    <td>何十九</td>
+                    <td>2024-12-13 10:16</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>456123789</td>
+                    <td>胡二十</td>
+                    <td>2024-12-13 10:17</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>654789456</td>
+                    <td>孙二十一</td>
+                    <td>2024-12-13 10:18</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>123123123</td>
+                    <td>吴二十二</td>
+                    <td>2024-12-13 10:19</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
