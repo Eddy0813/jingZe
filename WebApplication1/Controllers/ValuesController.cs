@@ -191,6 +191,138 @@ namespace WebApplication1.Controllers
         }
 
         /// <summary>
+        /// 毛重，返回公差
+        /// </summary>
+        /// <param name="mG"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetWeight")]
+        // GET api/values/5
+        public HttpResponseMessage GetWeight([FromBody] PG weight)
+        {
+            var rfid = Class1.GetRFIDIDA();
+
+            if (JZZSServer.IsFinished(rfid))
+            {
+                DbBase<GZID> dbgz = new DbBase<GZID>();
+
+                DbBase<material> dbma = new DbBase<material>();
+
+
+                string rfidid = JZZSServer.PGinsert(weight, dbma, dbgz);
+                if (rfidid != "")
+                {
+                    string MateCode = dbgz.FirstOrDefault(x => x.RFIDID == rfidid).MateCode;
+                    var Mata = dbma.FirstOrDefault(x => x.number == MateCode);
+                    if (MateCode != null)
+                    {
+                        var jsonString = JsonConvert.SerializeObject(new
+                        {
+                            qbh = Mata.qbh,
+                            MateCode = MateCode
+                        });
+
+                        var test = JZZSServer.ToJson(true, jsonString);
+                        return test;
+                    }
+                    else
+                    {
+                        var test = JZZSServer.ToJson(false, "该材料编码不存在");
+                        return test;
+                    }
+                }
+                else
+                {
+                    var test = JZZSServer.ToJson(false, "获取标签失败");
+                    return test;
+                }
+            }
+            else
+            {
+                DbBase<GZID> dbgz = new DbBase<GZID>();
+                DbBase<material> dbma = new DbBase<material>();
+                DbBase<ProWeigth> dbpro = new DbBase<ProWeigth>();
+                var (glValue, arfid) = JZZSServer.PGUpdate(weight, dbma, dbgz);
+                if (rfid != null)
+                {
+                    string MateCode = dbgz.FirstOrDefault(x => x.RFIDID == arfid).MateCode;
+                    using (var context = new JZZSEntities1())
+                    {
+                        var proweigth = context.ProWeigth.Where(x => x.RFIDID == arfid).OrderByDescending(x => x.DateTime).FirstOrDefault();
+                        var Mata = dbma.FirstOrDefault(x => x.number == MateCode);
+                        if (MateCode != null)
+                        {
+                            long timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+                            double? mpg = Mata.qbq;
+                            double? tol = Mata.gcRange;
+                            if (mpg.HasValue && tol.HasValue)
+                            {
+                                double? lowerBound = mpg - tol;
+                                double? upperBound = mpg + tol;
+
+                                if (glValue >= lowerBound && glValue <= upperBound)
+                                {
+                                    proweigth.Reserver1 = "合格";
+                                    context.SaveChanges();
+                                    var jsonString = JsonConvert.SerializeObject(new
+                                    {
+                                        OrderNo = proweigth.OrderNo,
+                                        OrderNum = proweigth.OrderNum,
+                                        ProID = (timestamp % 100000000).ToString("D8"),
+                                        ProName = proweigth.ProName,
+                                        result = "glValue 在 mpg 的上下 tol 范围内"
+                                    });
+                                    var test = JZZSServer.ToJson(true, jsonString);
+                                    return test;
+                                }
+                                else if (glValue <= lowerBound)
+                                {
+                                    proweigth.Reserver1 = "偏轻";
+                                    context.SaveChanges();
+                                    var test = JZZSServer.ToJson(true, "glValue 低于下限");
+                                    return test;
+                                    // 在这里可以处理 glValue 不在范围内的逻辑
+                                }
+                                else if (glValue >= upperBound)
+                                {
+                                    proweigth.Reserver1 = "偏重";
+                                    context.SaveChanges();
+                                    var test = JZZSServer.ToJson(true, "glValue 高于上限");
+                                    return test;
+                                    // 在这里可以处理 glValue 不在范围内的逻辑
+                                }
+                                else
+                                {
+                                    var test = JZZSServer.ToJson(false, "该材料编码不存在");
+                                    return test;
+                                }
+                            }
+                            else
+                            {
+
+                                var test = JZZSServer.ToJson(false, "不存在该记录");
+                                return test;
+                                // 在这里可以处理 glValue 不在范围内的逻辑
+
+                            }
+                        }
+                        else
+                        {
+                            var test = JZZSServer.ToJson(false, "该材料编码不存在");
+                            return test;
+                        }
+                    }
+
+                }
+                else
+                {
+                    var test = JZZSServer.ToJson(false, "获取标签失败");
+                    return test;
+                }
+            }
+        }
+
+        /// <summary>
         /// 生产详情更新
         /// </summary>
         /// <param name="mG"></param>

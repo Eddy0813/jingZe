@@ -43,6 +43,24 @@ namespace JingZeServer.Util
                 Content = new StringContent(jsonString, Encoding.UTF8, "application/json")
             };
         }
+
+        //判断当前是否有已完成
+        public static bool IsFinished(string singleRecord)
+        {
+            DbBase<GZID> dbgz = new DbBase<GZID>();
+            DbBase<ProWeigth> dbpro = new DbBase<ProWeigth>();
+            string number = dbgz.FirstOrDefault(x => x.RFIDID == singleRecord).MateCode;
+            var proWeigth = dbpro.SelectToList(x => x.RFIDID == singleRecord, x => x).OrderBy(x => x.DateTime).FirstOrDefault();
+            if (string.IsNullOrWhiteSpace(proWeigth.OrderProNo) || proWeigth.OrderProNo == "未完成")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public static string PGinsert(PG pG, DbBase<material> dbBase, DbBase<GZID> dbgz)
         {
             DbBase<RERFID> dbrfid = new DbBase<RERFID>();
@@ -77,6 +95,7 @@ namespace JingZeServer.Util
             }
 
         }
+
         public static (double? gl, string singleRecord) PGUpdate(PG mG, DbBase<material> dbBase, DbBase<GZID> dbgz)
         {
             using (var db = new JZZSEntities1())
@@ -110,6 +129,7 @@ namespace JingZeServer.Util
                 }
             }
         }
+
         public static string MataUpdate(PG mG, DbBase<material> dbBase, DbBase<GZID> dbgz)
         {
             using (var db = new JZZSEntities1())
